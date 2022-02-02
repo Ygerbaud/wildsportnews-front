@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import {
   Navbar,
   Container,
@@ -9,36 +10,17 @@ import {
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const categories = [
-  {
-    id: 1,
-    name: 'Football',
-    logo: './images/football',
-  },
-  {
-    id: 2,
-    name: 'Rugby',
-    logo: './images/football',
-  },
-  {
-    id: 3,
-    name: 'Basketball',
-    logo: './images/football',
-  },
-  {
-    id: 4,
-    name: 'Formule1',
-    logo: './images/football',
-  },
-  {
-    id: 5,
-    name: 'Handball',
-    logo: './images/football',
-  },
-];
 
 const NavigationBar = () => {
-  return (
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/articles/categories`)
+      .then((res) => setCategories(res.data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  const [categories, setCategories] = useState(null);
+  return categories ? (
     <div>
       <Navbar bg="light" expand="lg">
         <Container fluid>
@@ -58,11 +40,7 @@ const NavigationBar = () => {
                   key={categorie.id}
                   to={`/${categorie.name}`}
                 >
-                  <Nav.Link
-                    className="mx-4"
-                    key={categorie.id}
-                    href={`/${categorie.name}`}
-                  >
+                  <Nav.Link className="mx-4" key={categorie.id}>
                     {categorie.name}
                   </Nav.Link>
                 </LinkContainer>
@@ -91,7 +69,7 @@ const NavigationBar = () => {
         </Container>
       </Navbar>
     </div>
-  );
+  ) : null;
 };
 
 export default NavigationBar;
