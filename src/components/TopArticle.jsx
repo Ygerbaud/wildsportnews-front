@@ -13,25 +13,31 @@ const TopArticle = () => {
   }, []);
 
   return topArticle ? (
-    <Card className="m-5" style={{ width: '70%' }}>
-      <Card.Img variant="top" src={topArticle.image} />
-      <Card.Body>
-        <Card.Title>{topArticle.titre}</Card.Title>
-        <Card.Text>{topArticle.resume}</Card.Text>
-        {/* <Button className="center" variant="outline-secondary">
+    <>
+      <h1>A la une</h1>
+      <Card className="m-5 shadow-sm" style={{ width: '70%' }}>
+        <Card.Img variant="top" src={topArticle.image} />
+        <Card.Body>
+          <Card.Title>{topArticle.titre}</Card.Title>
+          <Card.Text>{topArticle.resume}</Card.Text>
+          {/* <Button className="center" variant="outline-secondary">
           Connexion
         </Button> */}
-        <LinkContainer
-          className=""
-          key={topArticle.id}
-          to={`/article/${topArticle.id}`}
-        >
-          <Button className="col-md-4 text-center" variant="outline-secondary">
-            Voir la suite
-          </Button>
-        </LinkContainer>
-      </Card.Body>
-    </Card>
+          <LinkContainer
+            className=""
+            key={topArticle.id}
+            to={`/article/${topArticle.id}`}
+          >
+            <Button
+              className="col-md-4 text-center"
+              variant="outline-secondary"
+            >
+              Voir la suite
+            </Button>
+          </LinkContainer>
+        </Card.Body>
+      </Card>
+    </>
   ) : null;
 };
 
