@@ -11,7 +11,7 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:catégories" element={<Home />} />
+        <Route path="/:sport" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
