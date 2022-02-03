@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-// import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 
 const TopArticle = () => {
