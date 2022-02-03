@@ -4,16 +4,25 @@ import './topArticle.css';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/authContext';
+import { useParams } from 'react-router-dom';
 
 const TopArticle = () => {
   const [topArticle, setTopArticle] = useState(null);
   const authContext = useContext(AuthContext);
+  const [id, setId] = useState(1);
+
+  const { sport } = useParams();
+  useEffect(() => {
+    if (sport === 'Rugby') setId(6);
+    else setId(1);
+  }, [sport]);
+
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/articles/1`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/articles/${id}`)
       .then((res) => setTopArticle(res.data[0]))
       .catch((error) => console.error(error));
-  }, []);
+  }, [id]);
   return topArticle ? (
     <>
       <h1 className="text-danger ms-4 font-weight-bold border-bottom w-25 ">
