@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Articles from '../components/Articles';
+import Live from '../components/Live';
 import TopArticle from '../components/TopArticle';
 
 const AllArticles = [
@@ -38,13 +39,21 @@ const Home = () => {
   console.log(sport);
   return (
     <div>
+      <div>pub</div>
       <TopArticle />
       <div>mettre un séparateur </div>
-      <h3>Plus de news</h3>
+      <h1 className="text-danger ms-4 font-weight-bold border-bottom w-25 ">
+        Plus d&apos;infos
+      </h1>
       <div className="row ">
-        {AllArticles.map((article) => (
-          <Articles key={article.id} article={article} />
-        ))}
+        <div className="col-8 ">
+          <div className="row ">
+            {AllArticles.map((article) => (
+              <Articles key={article.id} article={article} />
+            ))}
+          </div>
+        </div>
+        <Live />
       </div>
     </div>
   );

@@ -14,8 +14,10 @@ const TopArticle = () => {
 
   return topArticle ? (
     <>
-      <h1>A la une</h1>
-      <Card className="m-5 shadow-sm" style={{ width: '70%' }}>
+      <h1 className="text-danger ms-4 font-weight-bold border-bottom w-25 ">
+        Les dernieres infos
+      </h1>
+      <Card className="m-5 shadow-sm col-9">
         <Card.Img variant="top" src={topArticle.image} />
         <Card.Body>
           <Card.Title>{topArticle.titre}</Card.Title>
