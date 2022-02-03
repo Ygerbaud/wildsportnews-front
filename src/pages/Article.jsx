@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Pubbandeau from '../assets/Pub_rennes.jpg';
 import './article.css';
 
 const Article = () => {
@@ -14,7 +15,9 @@ const Article = () => {
   }, []);
   return selectedArticle ? (
     <>
-      <div className=" text-center article my-5">Pub</div>
+      <div className="text-center my-4">
+        <img src={Pubbandeau} alt="Pub" />
+      </div>
       <section className=" text-center article my-5">
         <img
           src={`${process.env.REACT_APP_LOCAL_URL}${selectedArticle.image}`}
@@ -26,6 +29,7 @@ const Article = () => {
         </div>
         <p className="text-center articletext">{selectedArticle.textcomplet}</p>
       </section>
+      <section></section>
     </>
   ) : null;
 };
