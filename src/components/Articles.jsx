@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 const Articles = ({ article }) => {
   return (
-    <Card className="m-5  p-0 shadow " style={{ width: '33%' }}>
+    <Card className="m-5  p-0 shadow col-5">
       <Card.Img variant="top" src={article.image} />
       <Card.Body>
         <Card.Title>{article.titre}</Card.Title>
