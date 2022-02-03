@@ -37,7 +37,7 @@ const TopArticle = () => {
             <Link
               className=""
               key={topArticle.id}
-              to={`${topArticle.name}/article/${topArticle.id}`}
+              to={`/${topArticle.name}/article/${topArticle.id}`}
             >
               <Button
                 className="col-md-4 text-center"
