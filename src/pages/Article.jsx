@@ -17,7 +17,7 @@ const Article = () => {
       <div className=" text-center article my-5">Pub</div>
       <section className=" text-center article my-5">
         <img
-          src={selectedArticle.image}
+          src={`${process.env.REACT_APP_LOCAL_URL}${selectedArticle.image}`}
           className="img-fluid"
           alt="Responsive image"
         ></img>

@@ -10,11 +10,7 @@ const Articles = ({ article }) => {
       <Card.Body>
         <Card.Title>{article.titre}</Card.Title>
         <Card.Text>{article.resume}</Card.Text>
-        <Link
-          className=""
-          key={article.id}
-          to={`${article.name}/article/${article.id}`}
-        >
+        <Link className="" key={article.id} to={`article/${article.id}`}>
           <Button className="col-md-4 " variant="outline-secondary">
             Voir la suite
           </Button>

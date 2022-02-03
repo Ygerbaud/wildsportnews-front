@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import Articles from '../components/Articles';
 import Live from '../components/Live';
 import TopArticle from '../components/TopArticle';
-
+import Pubbandeau from '../assets/Pub_rennes.jpg';
 const Home = () => {
   const { sport } = useParams();
   const [AllArticles, setAllArticles] = useState(null);
@@ -18,7 +18,9 @@ const Home = () => {
   }, []);
   return AllArticles ? (
     <div>
-      <div>pub</div>
+      <div className="text-center my-3">
+        <img src={Pubbandeau} alt="Pub" />
+      </div>
       <TopArticle />
       <div className="border-top"></div>
       <h1 className="text-danger ms-4 font-weight-bold border-bottom w-25 ">
