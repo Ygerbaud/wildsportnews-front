@@ -2,7 +2,7 @@ import React from 'react';
 import './live.css';
 const Live = () => {
   return (
-    <section className="border border-dark col-3" id="block_fil_info">
+    <section className="border border-dark col-3 live" id="block_fil_info">
       <div className="block_title_container">
         <h2 className="text-danger ">Les derniers live</h2>
         <h3 className="block_simple_top">

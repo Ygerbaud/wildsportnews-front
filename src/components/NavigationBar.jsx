@@ -104,9 +104,11 @@ const NavigationBar = () => {
     <div>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand className=" mx-6  " href="/">
-            WildNewSports
-          </Navbar.Brand>
+          <Link className=" mx-6 font-weight-bold " to="/">
+            <Navbar.Brand className=" mx-6 font-weight-bold ">
+              WildNewSports
+            </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse
             className="ms-5justify-content-center"
@@ -144,13 +146,22 @@ const NavigationBar = () => {
           </Navbar.Collapse>
           <Nav>
             {!authContext.uuid ? (
-              <Button
-                onClick={openModalconnexion}
-                className="justify-content-end mx-1 "
-                variant="dark"
-              >
-                Connexion
-              </Button>
+              <div>
+                <Button
+                  onClick={openModalconnexion}
+                  className="justify-content-end mx-1 "
+                  variant="dark"
+                >
+                  Connexion
+                </Button>
+                <Button
+                  onClick={openModalInscription}
+                  className="justify-content-end mx-1"
+                  variant="dark"
+                >
+                  Inscription
+                </Button>
+              </div>
             ) : (
               <Button
                 onClick={openModalconnexion}
@@ -160,13 +171,6 @@ const NavigationBar = () => {
                 Deconnexion
               </Button>
             )}
-            <Button
-              onClick={openModalInscription}
-              className="justify-content-end mx-1"
-              variant="dark"
-            >
-              Inscription
-            </Button>
           </Nav>
         </Container>
       </Navbar>
