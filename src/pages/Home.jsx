@@ -18,7 +18,7 @@ const Home = () => {
   }, []);
   return AllArticles ? (
     <div>
-      <div className="text-center my-3">
+      <div className="text-center my-4">
         <img src={Pubbandeau} alt="Pub" />
       </div>
       <TopArticle />
@@ -29,9 +29,13 @@ const Home = () => {
       <div className="row ">
         <div className="col-8 ">
           <div className="row ">
-            {AllArticles.filter((el) => el.name === sport).map((article) => (
-              <Articles key={article.id} article={article} />
-            ))}
+            {sport
+              ? AllArticles.filter((el) => el.name === sport).map((article) => (
+                  <Articles key={article.id} article={article} />
+                ))
+              : AllArticles.map((article) => (
+                  <Articles key={article.id} article={article} />
+                ))}
           </div>
         </div>
         <Live />

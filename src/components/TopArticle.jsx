@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
+import './topArticle.css';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/authContext';
-import './topArticle.css';
 
 const TopArticle = () => {
   const [topArticle, setTopArticle] = useState(null);
@@ -14,7 +14,6 @@ const TopArticle = () => {
       .then((res) => setTopArticle(res.data[0]))
       .catch((error) => console.error(error));
   }, []);
-  console.log(authContext.uuid);
   return topArticle ? (
     <>
       <h1 className="text-danger ms-4 font-weight-bold border-bottom w-25 ">
@@ -29,7 +28,7 @@ const TopArticle = () => {
             <Link
               className=""
               key={topArticle.id}
-              to={`article/${topArticle.id}`}
+              to={`${topArticle.name}/article/${topArticle.id}`}
             >
               <Button
                 className="col-md-4 text-center"
@@ -39,10 +38,10 @@ const TopArticle = () => {
               </Button>
             </Link>
           ) : (
-            <div className=" text-center acces border font-weight-bold">
+            <div className="border acces text-center">
               <p>
-                Le contenu de cet article est resérvé au compte Premium : Pour y
-                acceder veuillez vous connecter ou vous inscrire
+                Le contenue de cet articles est resérvé au compte Premium : Pour
+                y acceder veuillez vous connecter ou vous inscrire
               </p>
             </div>
           )}
