@@ -9,7 +9,8 @@ import {
   Button,
 } from 'react-bootstrap';
 import Modal from 'react-modal/lib/components/Modal';
-import { LinkContainer } from 'react-router-bootstrap';
+// import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/authContext';
 
 const customStyles = {
@@ -107,22 +108,23 @@ const NavigationBar = () => {
             WildNewSports
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse className="justify-content-center" id="navbarScroll">
+          <Navbar.Collapse
+            className="ms-5justify-content-center"
+            id="navbarScroll"
+          >
             <Nav
-              className="  mx-5 my-lg-0"
+              className="  mx-5 "
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
               {categories.map((categorie) => (
-                <LinkContainer
-                  className=""
+                <Link
+                  className="mx-4"
                   key={categorie.id}
                   to={`/${categorie.name}`}
                 >
-                  <Nav.Link className="mx-4" key={categorie.id}>
-                    {categorie.name}
-                  </Nav.Link>
-                </LinkContainer>
+                  {categorie.name}
+                </Link>
               ))}
             </Nav>
             <Navbar.Collapse />
