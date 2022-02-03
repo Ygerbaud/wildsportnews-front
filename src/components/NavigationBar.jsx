@@ -49,12 +49,14 @@ const NavigationBar = () => {
   }
   function closeModalInscription() {
     setModalInscriptionIsOpen(false);
+    setMsg('');
   }
 
   const authContext = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msg, setMsg] = useState('');
+  // const [favorite, setFavorite] = useState('');
 
   const getAuth = () => {
     authContext
@@ -96,12 +98,6 @@ const NavigationBar = () => {
       })
       .catch((err) => console.log(err));
   };
-  // const handleKeypress = (e) => {
-  //   //it triggers by pressing the enter key
-  //   if (e.charCode === 13) {
-  //     createUser();
-  //   }
-  // };
 
   return categories ? (
     <div>
@@ -248,6 +244,13 @@ const NavigationBar = () => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
+            {/* <Form.Label>Favorit Sport</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value=
+              onChange={(event) => setFavorite(event.target.value)}
+            /> */}
             <Form.Label>{msg}</Form.Label>
           </Form.Group>
           <Button
