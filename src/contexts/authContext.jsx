@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [email, setEmail] = useState('');
   const [uuid, setUuid] = useState(false);
   const [token, setToken] = useState('');
-  const [favorite, setFavorite] = useState(null);
+  // const [favorite, setFavorite] = useState(null);
 
   /*Création session avec Cookies */
   const loginUser = (mail, password) => {
@@ -21,7 +21,6 @@ export const AuthProvider = ({ children }) => {
         setEmail(res.data.email);
         setUuid(res.data.uuiduser);
         setToken(res.data.token);
-        setFavorite(res.data.favorite_id);
 
         document.cookie = `user_token=${res.data.token};expires=${new Date(
           Date.now() + 1000 * 60 * 60 * 4
@@ -59,7 +58,6 @@ export const AuthProvider = ({ children }) => {
         email,
         uuid,
         token,
-        favorite,
       }}
     >
       {children}
