@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+// import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Articles = ({ article }) => {
   return (
@@ -10,7 +11,7 @@ const Articles = ({ article }) => {
       <Card.Body>
         <Card.Title>{article.titre}</Card.Title>
         <Card.Text>{article.resume}</Card.Text>
-        <LinkContainer
+        <Link
           className=""
           key={article.id}
           to={`${article.name}/article/${article.id}`}
@@ -18,7 +19,7 @@ const Articles = ({ article }) => {
           <Button className="col-md-4 " variant="outline-secondary">
             Voir la suite
           </Button>
-        </LinkContainer>
+        </Link>
       </Card.Body>
     </Card>
   );

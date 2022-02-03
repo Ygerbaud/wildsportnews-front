@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+// import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
 
 const TopArticle = () => {
   const [topArticle, setTopArticle] = useState(null);
@@ -25,10 +26,10 @@ const TopArticle = () => {
           {/* <Button className="center" variant="outline-secondary">
           Connexion
         </Button> */}
-          <LinkContainer
+          <Link
             className=""
             key={topArticle.id}
-            to={`/article/${topArticle.id}`}
+            to={`${topArticle.name}/article/${topArticle.id}`}
           >
             <Button
               className="col-md-4 text-center"
@@ -36,7 +37,7 @@ const TopArticle = () => {
             >
               Voir la suite
             </Button>
-          </LinkContainer>
+          </Link>
         </Card.Body>
       </Card>
     </>
